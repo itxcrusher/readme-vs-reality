@@ -4,6 +4,16 @@
 
 Every README is a claim. The code underneath either enforces that claim or it does not. The gap between the two is invisible from the outside, and it is where production failures live.
 
+**Two things here are meant for you to use, and one is the evidence that they work.**
+
+| | |
+|---|---|
+| **[Twelve production gates](production-gates.md)** | Domain-agnostic review questions. Each states what it asks, the minimum evidence that answers it, and the symptom when it fails. Run them on your own repository. |
+| **[An extraction method](method.md)** | A finite workflow for deciding what to keep, rebuild, preserve, or delete across a portfolio of old projects, and how to close the review instead of letting it run forever. |
+| **[The audit that produced them](forensic-review.md)** | Where they came from, and why I trust them: they are what I found tearing apart my own prototype. |
+
+Neither the gates nor the method mention my project. They came out of it; they are not about it.
+
 This is a forensic review of my own prototype: 104 commits, a full-stack application, 13 Solidity files, 262 test declarations, and a public deployment that was live for months. It was, by the usual signals, a success. I took it apart against the boundaries that actually change state and value, found eight design failures, and concluded it should not be relaunched.
 
 I published the review instead of the relaunch.
