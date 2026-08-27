@@ -14,14 +14,14 @@ A prompt-to-application prototype. It translated a natural-language campaign req
 
 | Field | Evidence |
 |---|---|
-| Ownership | author-owned canonical source, private repository |
+| Ownership | author-owned. Source now public at [itxcrusher/chainforge-ai](https://github.com/itxcrusher/chainforge-ai); the original 104-commit history is preserved in a private archive |
 | Reviewed commit | `5380abd721be248ce5a159d26758a2b7fcb0df3c` |
 | Reachable commits | 104 |
 | Commit period | 2026-03-20 through 2026-05-13 |
 | Active planner templates | 10 |
 | Solidity source files | 13 total; 12 implementation files plus the factory |
 | Test corpus | 13 test files containing 262 static `it(...)` or `test(...)` declarations |
-| Execution boundary | static, read-only; no build, test, deployment, signature, or transaction executed |
+| Execution boundary | the review was static and read-only. The test suite was executed separately after publication: **262 passing**, 20 Solidity files compiled |
 
 **VERIFIED FACT:** these numbers were reproduced from the exact reviewed commit. The 262 declarations are not 262 passing tests.
 
@@ -103,7 +103,7 @@ These describe architectural risk. They deliberately exclude credentials, deploy
 
 **VERIFIED FACT:** the application applied deterministic compatibility and configuration checks and included a large static test corpus.
 
-**FAILURE:** these checks did not amount to an adversarial contract security audit, and the review did not execute the tests.
+**FAILURE:** these checks did not amount to an adversarial contract security audit. The review did not execute the tests; when they were later run, all 262 passed, and every design failure listed above was present anyway.
 
 **LESSON:** name a validator according to what it proves. Schema and compatibility validation are useful. They do not establish contract safety.
 
@@ -126,9 +126,9 @@ flowchart LR
 ## Evidence limits
 
 - The review was static and read-only.
-- No dependency installation, build, test, deployment, signature, or state-changing transaction was executed.
+- No deployment, signature, or state-changing transaction was executed at any point. The test suite was run only after publication, in isolation, and its result is stated above.
 - The reviewed commit is the canonical research snapshot, not a claim about the exact state at every historical demo.
-- The source repository is private, so the commit reference is author-controlled evidence rather than independently verifiable.
+- The source is public at [itxcrusher/chainforge-ai](https://github.com/itxcrusher/chainforge-ai), so the counts in this chapter can be reproduced from the code. The original 104-commit history sits in a private archive, so commit-level claims remain author-controlled.
 - **The application was decommissioned before this review was published.** The hosted frontend, builder, and relayer API no longer serve traffic. Contracts previously deployed on-chain are immutable and remain on-chain; this document describes design decisions in them, not a reachable service.
 - No claim is made about current exploitability.
 - Findings describe one prototype. They are not a general claim about AI code generation, template-based deployment, or any other system.

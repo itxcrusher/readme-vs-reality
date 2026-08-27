@@ -40,7 +40,11 @@ Read the full evidence, including the trust-boundary reconstruction and all eigh
 
 Thirteen test files contained 262 static `it(...)` and `test(...)` declarations. That is a real inventory of intent, and it is worth something.
 
-It is not 262 passing tests. I never executed them during the review, so I do not claim they pass. Counting declarations and reporting them as coverage is one of the easiest ways to mislead yourself about a codebase, including your own.
+During the review I refused to call those passing tests, because I had not run them. Counting declarations and reporting them as coverage is one of the easiest ways to mislead yourself about a codebase, including your own.
+
+Since publishing, I ran them: **262 passing**, in five minutes, against the now-public source. Twenty Solidity files compile clean.
+
+**All eight design failures were present while all 262 tests passed.** That is the sharper lesson. A green suite proves the code does what the tests say; it says nothing about whether the tests assert the right things. Every test here checks behaviour inside the trust boundary the author already assumed. None asks whether that boundary is where the product's claims implied it was.
 
 ## Why I killed it instead of fixing it
 
@@ -68,7 +72,9 @@ The twelve gates and the method were not invented at a desk. They are the questi
 
 ## Evidence boundary
 
-The review was static and read-only. No dependency installation, build, test run, deployment, signature, or state-changing transaction was executed. The reviewed commit is a research snapshot, not a claim about the state at every historical demo. The source repository is private, and **the application was decommissioned before this review was published**, so nothing here describes a reachable system.
+The review itself was static and read-only: no build, deployment, signature, or state-changing transaction. The reviewed commit is a research snapshot, not a claim about the state at every historical demo. **The application was decommissioned before this review was published**, so nothing here describes a reachable system.
+
+The source is now public at [itxcrusher/chainforge-ai](https://github.com/itxcrusher/chainforge-ai), so every count in this study can be checked against the code rather than taken on trust.
 
 The findings describe one prototype. They support no general claim about AI code generation, template-based deployment, or software at large.
 
